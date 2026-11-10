@@ -1,72 +1,77 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #eef2f7;
+  font-family: Arial, "Microsoft JhengHei", sans-serif;
 }
 
 .calculator {
-	background: white;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-	width: 320px;
+  width: min(340px, 92vw);
+  padding: 24px;
+  border-radius: 20px;
+  background: #1f2937;
+  box-shadow: 0 12px 30px #0003;
+}
+
+h1 {
+  margin: 0 0 18px;
+  color: white;
+  text-align: center;
+  font-size: 24px;
 }
 
 .display {
-	background: #222;
-	color: #fff;
-	font-size: 2em;
-	padding: 20px;
-	text-align: right;
-	border-radius: 5px;
-	margin-bottom: 10px;
-	min-height: 60px;
-	word-wrap: break-word;
+  min-height: 72px;
+  margin-bottom: 16px;
+  padding: 18px 14px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #111827;
+  text-align: right;
+  font-size: 30px;
+  overflow-wrap: anywhere;
 }
 
 .buttons {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 button {
-	padding: 20px;
-	font-size: 1.2em;
-	border: none;
-	background: #f0f0f0;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: all 0.3s;
+  min-height: 58px;
+  border: 0;
+  border-radius: 10px;
+  background: #374151;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 button:hover {
-	background: #e0e0e0;
+  background: #4b5563;
 }
 
-button:active {
-	transform: scale(0.95);
+button.function {
+  background: #64748b;
 }
 
-.equals {
-	background: #667eea;
-	color: white;
-	grid-row: span 2;
+button.operator {
+  background: #2563eb;
 }
 
-.equals:hover {
-	background: #5568d3;
+button.equals {
+  grid-row: span 2;
+  background: #16a34a;
 }
 
-.zero {
-	grid-column: span 2;
+button.zero {
+  grid-column: span 2;
 }

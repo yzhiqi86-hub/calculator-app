@@ -1,43 +1,45 @@
-let display = document.getElementById('display');
-let currentInput = '0';
-
-function updateDisplay() {
-	display.textContent = currentInput;
-}
+const display = document.getElementById("display");
 
 function appendToDisplay(value) {
-	if (currentInput === '0' && value !== '.') {
-		currentInput = value;
-	} else {
-		currentInput += value;
-	}
-	updateDisplay();
+  if (display.textContent === "0" || display.textContent === "錯誤") {
+    display.textContent = value;
+  } else {
+    display.textContent += value;
+  }
 }
 
 function clearDisplay() {
-	currentInput = '0';
-	updateDisplay();
+  display.textContent = "0";
 }
 
 function deleteLast() {
-	if (currentInput.length > 1) {
-		currentInput = currentInput.slice(0, -1);
-	} else {
-		currentInput = '0';
-	}
-	updateDisplay();
+  if (display.textContent === "錯誤") {
+    clearDisplay();
+    return;
+  }
+
+  display.textContent = display.textContent.slice(0, -1) || "0";
 }
 
 function calculate() {
-	try {
-		currentInput = eval(currentInput).toString();
-		updateDisplay();
-	} catch (error) {
-		currentInput = 'Error';
-		updateDisplay();
-		setTimeout(() => {
-			currentInput = '0';
-			updateDisplay();
-		}, 1500);
-	}
+  const expression = display.textContent;
+
+  // 只允許數字、小數點和基本四則運算符號
+  if (!/^[0-9+\-*/.]+$/.test(expression)) {
+    display.textContent = "錯誤";
+    return;
+  }
+
+  try {
+    const result = Function('"use strict"; return (' + expression + ')')();
+
+    if (!Number.isFinite(result)) {
+      display.textContent = "錯誤";
+      return;
+    }
+
+    display.textContent = Number(result.toPrecision(10)).toString();
+  } catch {
+    display.textContent = "錯誤";
+  }
 }
