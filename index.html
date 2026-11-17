@@ -18,6 +18,19 @@
       <button class="memory" onclick="memoryRecall()">MR</button>
       <button class="memory" onclick="memoryClear()">MC</button>
     </div>
+    <div class="scientific-dropdown">
+      <label for="scientific-operation">科學計算</label>
+      <select id="scientific-operation" aria-label="選擇科學計算">
+        <option value="">選擇功能</option>
+        <option value="sin">sin（角度）</option>
+        <option value="cos">cos（角度）</option>
+        <option value="tan">tan（角度）</option>
+        <option value="log">log₁₀</option>
+        <option value="sqrt">√ 平方根</option>
+        <option value="pow">x² 平方</option>
+      </select>
+      <button onclick="applyScientificSelection()">執行</button>
+    </div>
     <div class="buttons">
       <button class="function" onclick="clearDisplay()">AC</button>
       <button class="function" onclick="calculatePercentage()">%</button>
