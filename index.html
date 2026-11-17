@@ -11,6 +11,13 @@
     <h1>簡易計算機</h1>
     <div id="display" class="display">0</div>
 
+    <div id="memory-indicator" class="memory-indicator" aria-live="polite"></div>
+    <div class="memory-buttons">
+      <button class="memory" onclick="memoryAdd()">M+</button>
+      <button class="memory" onclick="memorySubtract()">M-</button>
+      <button class="memory" onclick="memoryRecall()">MR</button>
+      <button class="memory" onclick="memoryClear()">MC</button>
+    </div>
     <div class="buttons">
       <button class="function" onclick="clearDisplay()">AC</button>
       <button class="function" onclick="calculatePercentage()">%</button>
