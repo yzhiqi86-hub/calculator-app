@@ -79,3 +79,6 @@ button.zero {
 button.memory { background:#c2410c; font-size:18px; }
 button.memory:hover { background:#9a3412; }
 .memory-indicator { color:#fbbf24; min-height:20px; text-align:right; font-size:13px; margin-bottom:6px; }
+
+.scientific-buttons { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+.scientific-buttons button { background:#0f766e; font-size:17px; min-height:42px; }
