@@ -75,3 +75,7 @@ button.equals {
 button.zero {
   grid-column: span 2;
 }
+.memory-buttons { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:12px; }
+button.memory { background:#c2410c; font-size:18px; }
+button.memory:hover { background:#9a3412; }
+.memory-indicator { color:#fbbf24; min-height:20px; text-align:right; font-size:13px; margin-bottom:6px; }
