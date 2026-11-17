@@ -43,3 +43,15 @@ function calculate() {
     display.textContent = "錯誤";
   }
 }
+// Convert the current numeric expression to a percentage.
+function calculatePercentage() {
+  try {
+    const expression = display.textContent;
+    if (!/^[0-9+\-*/.]+$/.test(expression)) throw new Error('Invalid expression');
+    const value = Function('"use strict"; return (' + expression + ')')();
+    if (!Number.isFinite(value)) throw new Error('Invalid result');
+    display.textContent = Number((value / 100).toPrecision(10)).toString();
+  } catch {
+    display.textContent = "錯誤";
+  }
+}
