@@ -55,3 +55,25 @@ function calculatePercentage() {
     display.textContent = "錯誤";
   }
 }
+
+let memoryValue = 0;
+function currentNumber() {
+  const expression = display.textContent;
+  if (!/^[0-9+\-*/.]+$/.test(expression)) throw new Error('Invalid expression');
+  const value = Function('"use strict"; return (' + expression + ')')();
+  if (!Number.isFinite(value)) throw new Error('Invalid number');
+  return value;
+}
+function updateMemoryIndicator() {
+  document.getElementById('memory-indicator').textContent = memoryValue === 0 ? '' : 'M: ' + memoryValue;
+}
+function memoryAdd() {
+  try { memoryValue += currentNumber(); updateMemoryIndicator(); clearDisplay(); }
+  catch { display.textContent = '錯誤'; }
+}
+function memorySubtract() {
+  try { memoryValue -= currentNumber(); updateMemoryIndicator(); clearDisplay(); }
+  catch { display.textContent = '錯誤'; }
+}
+function memoryRecall() { display.textContent = String(memoryValue); }
+function memoryClear() { memoryValue = 0; updateMemoryIndicator(); }
