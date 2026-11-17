@@ -21,7 +21,7 @@ function deleteLast() {
   display.textContent = display.textContent.slice(0, -1) || "0";
 }
 
-function calculate() {
+function calculateBROKEN() {
   const expression = display.textContent;
 
   // 只允許數字、小數點和基本四則運算符號
