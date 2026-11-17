@@ -77,3 +77,22 @@ function memorySubtract() {
 }
 function memoryRecall() { display.textContent = String(memoryValue); }
 function memoryClear() { memoryValue = 0; updateMemoryIndicator(); }
+
+// Trigonometric functions use degrees; log is base 10.
+function scientificCalc(operation) {
+  try {
+    const value = currentNumber();
+    let result;
+    switch (operation) {
+      case 'sin': result = Math.sin(value * Math.PI / 180); break;
+      case 'cos': result = Math.cos(value * Math.PI / 180); break;
+      case 'tan': if (Math.abs(Math.cos(value * Math.PI / 180)) < 1e-12) throw new Error('Undefined'); result = Math.tan(value * Math.PI / 180); break;
+      case 'log': if (value <= 0) throw new Error('Domain'); result = Math.log10(value); break;
+      case 'sqrt': if (value < 0) throw new Error('Domain'); result = Math.sqrt(value); break;
+      case 'pow': result = value * value; break;
+      default: return;
+    }
+    if (!Number.isFinite(result)) throw new Error('Invalid result');
+    display.textContent = Number(result.toPrecision(10)).toString();
+  } catch { display.textContent = '錯誤'; }
+}
