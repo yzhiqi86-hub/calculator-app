@@ -79,3 +79,8 @@ button.zero {
 button.memory { background:#c2410c; font-size:18px; }
 button.memory:hover { background:#9a3412; }
 .memory-indicator { color:#fbbf24; min-height:20px; text-align:right; font-size:13px; margin-bottom:6px; }
+
+.scientific-dropdown { display:grid; grid-template-columns:1fr auto; gap:8px; margin-bottom:12px; align-items:center; }
+.scientific-dropdown label { grid-column:1/-1; color:white; font-size:14px; }
+.scientific-dropdown select { min-width:0; min-height:42px; border-radius:8px; padding:6px; font-size:15px; }
+.scientific-dropdown button { background:#0f766e; font-size:16px; min-height:42px; padding:0 12px; }
