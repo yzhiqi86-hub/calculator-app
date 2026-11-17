@@ -2,62 +2,60 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>簡易計算機</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多功能計算機 | Calculator App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="calculator">
-    <h1>簡易計算機</h1>
-    <div id="display" class="display">0</div>
-
+    <h1>多功能計算機</h1>
+    <p class="hint">四則運算 · 記憶功能 · 科學計算</p>
     <div id="memory-indicator" class="memory-indicator" aria-live="polite"></div>
+    <div id="display" class="display" role="status" aria-live="polite">0</div>
     <div class="memory-buttons">
       <button class="memory" onclick="memoryAdd()">M+</button>
       <button class="memory" onclick="memorySubtract()">M-</button>
       <button class="memory" onclick="memoryRecall()">MR</button>
       <button class="memory" onclick="memoryClear()">MC</button>
     </div>
-    <div class="scientific-dropdown">
-      <label for="scientific-operation">科學計算</label>
-      <select id="scientific-operation" aria-label="選擇科學計算">
-        <option value="">選擇功能</option>
-        <option value="sin">sin（角度）</option>
-        <option value="cos">cos（角度）</option>
-        <option value="tan">tan（角度）</option>
-        <option value="log">log₁₀</option>
-        <option value="sqrt">√ 平方根</option>
-        <option value="pow">x² 平方</option>
-      </select>
-      <button onclick="applyScientificSelection()">執行</button>
+    <div class="scientific-controls">
+      <label for="scientific-operation">科學計算（角度制）</label>
+      <div class="scientific-row">
+        <select id="scientific-operation">
+          <option value="">選擇運算</option>
+          <option value="sin">sin</option>
+          <option value="cos">cos</option>
+          <option value="tan">tan</option>
+          <option value="log">log₁₀</option>
+          <option value="sqrt">√ 平方根</option>
+          <option value="pow">x² 平方</option>
+        </select>
+        <button class="scientific" onclick="applyScientificSelection()">執行</button>
+      </div>
     </div>
     <div class="buttons">
       <button class="function" onclick="clearDisplay()">AC</button>
-      <button class="function" onclick="calculatePercentage()">%</button>
       <button class="function" onclick="deleteLast()">⌫</button>
+      <button class="function" onclick="calculatePercentage()">%</button>
       <button class="operator" onclick="appendToDisplay('/')">÷</button>
-      <button class="operator" onclick="appendToDisplay('*')">×</button>
-
       <button onclick="appendToDisplay('7')">7</button>
       <button onclick="appendToDisplay('8')">8</button>
       <button onclick="appendToDisplay('9')">9</button>
-      <button class="operator" onclick="appendToDisplay('-')">−</button>
-
+      <button class="operator" onclick="appendToDisplay('*')">×</button>
       <button onclick="appendToDisplay('4')">4</button>
       <button onclick="appendToDisplay('5')">5</button>
       <button onclick="appendToDisplay('6')">6</button>
-      <button class="operator" onclick="appendToDisplay('+')">+</button>
-
+      <button class="operator" onclick="appendToDisplay('-')">−</button>
       <button onclick="appendToDisplay('1')">1</button>
       <button onclick="appendToDisplay('2')">2</button>
       <button onclick="appendToDisplay('3')">3</button>
-      <button class="equals" onclick="calculate()">=</button>
-
+      <button class="operator" onclick="appendToDisplay('+')">+</button>
       <button class="zero" onclick="appendToDisplay('0')">0</button>
       <button onclick="appendToDisplay('.')">.</button>
+      <button class="equals" onclick="calculate()">=</button>
     </div>
+    <p class="footer">支援鍵盤輸入：0–9、+、−、*、/、Enter、Backspace、Esc</p>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
